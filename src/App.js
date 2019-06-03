@@ -1,15 +1,16 @@
 import React from "react";
 import Login from "./components/authentication/Login";
-import Navigation from "./components/layout/Navbar";
+import Register from "./components/authentication/Register";
+import { BrowserRouter, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <Navigation />
-      <div style={{ paddingTop: 10 }}>
-        <Login />
+    <BrowserRouter>
+      <div className="App">
+        <Route exact path="/" component={Login} />
+        <Route exact path="/register" component={Register} />
       </div>
-    </div>
+    </BrowserRouter>
   );
 }
 

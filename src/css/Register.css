@@ -19,12 +19,12 @@
   margin: 0 !important;
   font-family: "Lato", sans-serif;
 }
-.auth__auth {
+.auth {
   margin-left: 3vmin;
-  margin-top: 6%;
+  margin-top: -4%;
 }
 @media (min-width: 992px) {
-  .auth__auth {
+  .auth {
     width: 70%;
     flex-shrink: 0;
   }
@@ -93,7 +93,7 @@ button,
   background-color: rgba(89, 78, 255);
   border-radius: 30px;
   transition: 0.7s;
-  margin: auto;
+  margin-left: 2.5vw;
   display: block;
 
   text-decoration: none;
@@ -108,10 +108,6 @@ button,
   }
 }
 
-.forget {
-  text-align: left;
-}
-
 .auth__title {
   font-size: 1.728em;
   text-align: center;
@@ -122,14 +118,8 @@ p {
   text-align: center;
 }
 
-.signup {
-  text-align: right;
-  margin-top: 0px;
-  /* margin-left: 15px; */
-}
-
 .loginFooter {
   color: rgb(132, 123, 123) !important;
-  margin-top: 6vh !important;
+  margin-top: 4vh !important;
   margin-left: 15px;
 }

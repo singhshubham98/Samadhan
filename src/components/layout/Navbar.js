@@ -28,7 +28,7 @@ export default class Navigation extends Component {
       <div>
         <Navbar expand="md" className="navDiv">
           <NavbarBrand className="navbarBrand ml-4" href="/">
-            CRICKET <span>LEAGUE</span>
+            Logo
           </NavbarBrand>
           <NavbarToggler className="toggleButton" onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
@@ -40,17 +40,12 @@ export default class Navigation extends Component {
               </NavItem>
               <NavItem>
                 <NavLink href="/fixtures" className="nav-link">
-                  Fixtures
+                  Notifications
                 </NavLink>
               </NavItem>
               <NavItem>
                 <NavLink href="/register" className="nav-link">
-                  Register
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/" className="nav-link">
-                  Results
+                  Groups
                 </NavLink>
               </NavItem>
             </Nav>
