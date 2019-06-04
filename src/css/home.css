@@ -1,0 +1,10 @@
+.fDiv {
+  clip-path: polygon(0 0, 100% 0, 100% 50%, 0% 90%);
+  background-color: rgba(89, 78, 255);
+}
+.down3 {
+  margin: 10vmin 0 0 15vmin;
+}
+.down6 {
+  margin: 10vmin 0 5vmin 5vmin;
+}

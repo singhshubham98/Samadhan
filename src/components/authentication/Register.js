@@ -51,7 +51,7 @@ class Register extends Component {
                   />
                   <div className="row">
                     <div className="col-md-5">
-                      <button type="submit" className="button button__accent">
+                      <button type="submit" className="but">
                         Register
                       </button>
                     </div>

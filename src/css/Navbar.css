@@ -6,7 +6,7 @@
   z-index: 100;
   color: white !important;
   top: 0;
-  background-image: linear-gradient(rgb(108, 99, 255), rgb(108, 99, 255));
+  background-color: rgba(89, 78, 255);
 }
 
 .navbarBrand {

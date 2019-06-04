@@ -27,25 +27,35 @@ export default class Navigation extends Component {
     return (
       <div>
         <Navbar expand="md" className="navDiv">
-          <NavbarBrand className="navbarBrand ml-4" href="/">
-            Logo
+          <NavbarBrand className="navbarBrand ml-4" href="/home">
+            Samadhan
           </NavbarBrand>
           <NavbarToggler className="toggleButton" onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto mt-2" navbar>
               <NavItem>
-                <NavLink href="/" className="nav-link">
-                  Home
+                <NavLink href="/communities" className="nav-link">
+                  <i className="fa fa-users" />
                 </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/fixtures" className="nav-link">
-                  Notifications
+                <NavLink href="/home" className="nav-link">
+                  <i className="fa fa-search" />
                 </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/register" className="nav-link">
-                  Groups
+                <NavLink href="/notifications" className="nav-link">
+                  <i className="fa fa-bell" />
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href="/communities" className="nav-link">
+                  <i className="fa fa-user" />
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href="/logout" className="nav-link">
+                  <i className="fa fa-sign-out" />
                 </NavLink>
               </NavItem>
             </Nav>
