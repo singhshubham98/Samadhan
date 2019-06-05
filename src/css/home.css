@@ -49,7 +49,6 @@
 
 .w-col-3 {
   width: 25%;
-  /* position: fixed !important; */
   position: static !important;
 }
 .w-col {
@@ -125,11 +124,12 @@ div {
 }
 
 .question {
+  width: 40vw !important;
   margin-top: 2.5vmin;
   border-radius: 0 25px 0 25px !important;
 }
 
 .questionSubmit {
   width: 6vmin;
-  margin: 4vmin 0 0 1vmin;
+  margin: 4vmin 0 0 4vmin;
 }
