@@ -26,7 +26,7 @@ export default class Navigation extends Component {
   render() {
     return (
       <div>
-        <Navbar expand="md" className="navDiv">
+        <Navbar fixed="top" expand="md" className="navDiv">
           <NavbarBrand className="navbarBrand ml-4" href="/home">
             Samadhan
           </NavbarBrand>
