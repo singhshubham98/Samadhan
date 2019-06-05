@@ -39,6 +39,27 @@ class Home extends Component {
                     </li>
                     <li className="mb-2">
                       <a href="#">Web development</a>
+                    </li>{" "}
+                    <li className="mb-2">
+                      <a href="#">Algorithm </a>
+                    </li>
+                    <li className="mb-2">
+                      <a href="#">Computer Vision</a>
+                    </li>
+                    <li className="mb-2">
+                      <a href="#">Web development</a>
+                    </li>
+                    <li className="mb-2">
+                      <a href="#">Quantum Computing</a>
+                    </li>
+                    <li className="mb-2">
+                      <a href="#">Algorithm</a>
+                    </li>
+                    <li className="mb-2">
+                      <a href="#">Computer Vision</a>
+                    </li>
+                    <li className="mb-2">
+                      <a href="#">Web development</a>
                     </li>
                   </ul>
                 </div>

@@ -1,10 +1,5 @@
-/* .fDiv {
-  clip-path: polygon(0 0, 100% 0, 100% 50%, 0% 90%);
-  background-color: rgba(89, 78, 255);
-} */
-
 .content-wrapper {
-  padding: 20vh 0 50px 0;
+  padding: 16vh 0 50px 0;
   background: url("../images/homebackground.svg");
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -83,6 +78,7 @@ div {
 
 .card {
   padding: 2vmin;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .logo {
   margin-top: 17px;
