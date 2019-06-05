@@ -6,7 +6,7 @@
 .content-wrapper {
   padding: 20vh 0 50px 0;
   background: url("../images/homebackground.svg");
-
+  background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: contain;
 }
@@ -49,9 +49,10 @@
 
 .w-col-3 {
   width: 25%;
+  /* position: fixed !important; */
+  position: static !important;
 }
 .w-col {
-  position: relative;
   float: left;
   min-height: 1px;
   padding: 0 10px;
@@ -74,7 +75,7 @@ div {
 }
 
 .round {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(82, 149, 250, 0.208);
   border-radius: 50%;
   height: 60px;
   width: 60px;
@@ -90,13 +91,45 @@ div {
 }
 
 .sidebar-header {
-  background-color: rgb(165, 164, 164);
+  background-color: #fff;
   padding: 20px;
   font-size: 3.5vmin;
   text-align: center;
-  color: rgb(120, 69, 255);
+  color: rgb(82, 149, 250);
+
   border-radius: 5px 5px 0 0;
 }
 .body {
   margin-top: 2vh;
+}
+
+.feed li {
+  list-style: none;
+}
+
+.feed > li {
+  margin: 0px;
+  font-size: 2.3vmin;
+  font-weight: 300;
+}
+
+.comment {
+  width: 40vw !important;
+  margin-top: 2.5vmin;
+  border-radius: 0 25px 0 25px !important;
+}
+
+.submit {
+  width: 6vmin;
+  margin: 4vmin 0 0 4vmin;
+}
+
+.question {
+  margin-top: 2.5vmin;
+  border-radius: 0 25px 0 25px !important;
+}
+
+.questionSubmit {
+  width: 6vmin;
+  margin: 4vmin 0 0 1vmin;
 }
