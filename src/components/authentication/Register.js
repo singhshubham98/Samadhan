@@ -18,7 +18,8 @@ class Register extends Component {
         handleName: false,
         email: false,
         password: false
-      }
+      },
+      isEnable: true
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -30,12 +31,26 @@ class Register extends Component {
     const value = target.value;
     const name = target.name;
     this.setState({
-      [name]: value
+      [name]: value,
+      isEnable: false
     });
   }
   handleSubmit(event) {
-    console.log(JSON.stringify(this.state));
     event.preventDefault();
+    alert(JSON.stringify(this.state));
+    this.setState({
+      name: "",
+      handleName: "",
+      email: "",
+      password: "",
+      touched: {
+        name: false,
+        handleName: false,
+        email: false,
+        password: false
+      },
+      isEnable: true
+    });
   }
 
   handleBlur = feild => event => {
@@ -49,27 +64,35 @@ class Register extends Component {
       name: "",
       handleName: "",
       email: "",
-      password: ""
+      password: "",
+      isEnable: false
     };
 
-    var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    var filter = /^([a-zA-Z0-9_\.\-])+\@iiitvadodara.ac.in/;
     if (this.state.touched.email && !filter.test(email)) {
       error.email = "Please provide a valid email address";
+      error.isEnable = true;
     }
 
-    if (this.state.touched.name && name.length < 3)
+    if (this.state.touched.name && name.length < 3) {
       error.name = "Name must contains atleast 3 charchters";
-    else if (this.state.touched.name && name.length > 20)
+      error.isEnable = true;
+    } else if (this.state.touched.name && name.length > 20) {
       error.name = "Name can contains atmost 20 charchters";
+      error.isEnable = true;
+    }
 
-    if (this.state.touched.handleName && handleName.length < 3)
+    if (this.state.touched.handleName && handleName.length < 3) {
       error.handleName = "Name must contains atleast 3 charchters";
-    else if (this.state.touched.handleName && handleName.length > 20)
+      error.isEnable = true;
+    } else if (this.state.touched.handleName && handleName.length > 20) {
       error.handleName = "Name can contains atmost 20 charchters";
-
-    if (this.state.touched.password && password.length < 8)
+      error.isEnable = true;
+    }
+    if (this.state.touched.password && password.length < 8) {
       error.password = "Password must contain atleast 8 letters";
-
+      error.isEnable = true;
+    }
     return error;
   }
   render() {
@@ -80,10 +103,15 @@ class Register extends Component {
       this.state.password
     );
     const isEnable =
-      errors.name.length > 0 ||
-      errors.handleName.length > 0 ||
-      errors.email.length > 0 ||
-      errors.password.length > 0;
+      errors.isEnable ||
+      !(
+        this.state.touched.name &&
+        this.state.touched.handleName &&
+        this.state.touched.email &&
+        this.state.touched.password
+      ) ||
+      this.state.isEnable;
+
     return (
       <React.Fragment>
         <AuthNavbar />
@@ -108,7 +136,7 @@ class Register extends Component {
                       placeholder="Enter your Full Name"
                       value={this.state.name}
                       onBlur={this.handleBlur("name")}
-                      valid={errors.name === ""}
+                      valid={errors.name === "" && this.state.touched.name}
                       invalid={errors.name !== ""}
                       onChange={this.handleInputChange}
                     />
@@ -121,9 +149,12 @@ class Register extends Component {
                       name="handleName"
                       id="handleName"
                       placeholder="Display name"
-                      value={this.state.handle}
+                      value={this.state.handleName}
                       onBlur={this.handleBlur("handleName")}
-                      valid={errors.handleName === ""}
+                      valid={
+                        errors.handleName === "" &&
+                        this.state.touched.handleName
+                      }
                       invalid={errors.handleName !== ""}
                       onChange={this.handleInputChange}
                     />
@@ -140,7 +171,7 @@ class Register extends Component {
                       placeholder="your@example.com"
                       value={this.state.email}
                       onBlur={this.handleBlur("email")}
-                      valid={errors.email === ""}
+                      valid={errors.email === "" && this.state.touched.email}
                       invalid={errors.email !== ""}
                       onChange={this.handleInputChange}
                     />
@@ -156,7 +187,9 @@ class Register extends Component {
                       autoComplete="off"
                       value={this.state.password}
                       onBlur={this.handleBlur("password")}
-                      valid={errors.password === ""}
+                      valid={
+                        errors.password === "" && this.state.touched.password
+                      }
                       invalid={errors.password !== ""}
                       onChange={this.handleInputChange}
                     />
