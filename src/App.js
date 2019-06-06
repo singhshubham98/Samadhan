@@ -1,9 +1,8 @@
 import React from "react";
 import Login from "./components/authentication/Login";
 import Register from "./components/authentication/Register";
-import Dashboard from "./components/dashboard/Dashboard";
 import { BrowserRouter, Route } from "react-router-dom";
-import Home from "./components/dashboard/Home";
+import Home from "./components/dashboard/home";
 import Communities from "./components/dashboard/Communities";
 
 function App() {
