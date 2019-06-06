@@ -3,7 +3,6 @@ import image from "../../images/undraw_online_discussion_5wgl.svg";
 import "../../css/Register.css";
 import AuthNavbar from "../layout/AuthNavbar";
 import { Form, FormGroup, FormFeedback, Label, Input } from "reactstrap";
-import { isExpressionWrapper } from "@babel/types";
 
 class Register extends Component {
   constructor(props) {
@@ -13,77 +12,67 @@ class Register extends Component {
       handleName: "",
       email: "",
       password: "",
-      touched: {
-        name: false,
-        handleName: false,
-        email: false,
-        password: false
+      errors: {
+        name: "",
+        handleName: "",
+        email: "",
+        password: "",
+        disabled: true
       }
     };
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleBlur = this.handleBlur.bind(this);
   }
 
-  handleInputChange(event) {
-    const target = event.target;
-    const value = target.value;
-    const name = target.name;
+  handleInputChange = e => {
     this.setState({
-      [name]: value
-    });
-  }
-  handleSubmit(event) {
-    console.log(JSON.stringify(this.state));
-    event.preventDefault();
-  }
-
-  handleBlur = feild => event => {
-    this.setState({
-      touched: { ...this.state.touched, [feild]: true }
+      [e.target.id]: e.target.value
     });
   };
+  handleSubmit = event => {
+    console.log(JSON.stringify(this.state));
+    event.preventDefault();
+  };
 
-  validate(name, handleName, email, password) {
-    const error = {
+  handleBlur = event => {
+    const { errors, ...inputs } = this.state;
+    this.validation(inputs);
+  };
+
+  validation = ({ name, handleName, email, password }) => {
+    const errors = {
       name: "",
       handleName: "",
       email: "",
-      password: ""
+      password: "",
+      disabled: false
     };
-
-    var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-    if (this.state.touched.email && !filter.test(email)) {
-      error.email = "Please provide a valid email address";
+    var filter = /^([a-zA-Z0-9_\.\-])+\@iiitvadodara.ac.in/;
+    if (name.length === 0) {
+      errors.name = "Name must contains atleast 1 charchter";
+      errors.disabled = true;
+    } else if (name.length > 30) {
+      errors.name = "Name can contains atmost 30 charchters";
+      errors.disabled = true;
     }
+    if (handleName.length < 3) {
+      errors.handleName = "Name must contains atleast 3 charchters";
+      errors.disabled = true;
+    } else if (handleName && handleName.length > 20) {
+      errors.handleName = "Name can contains atmost 20 charchters";
+      errors.disabled = true;
+    }
+    if (email && !filter.test(email)) {
+      errors.email = "Please provide a valid email address";
+      errors.disabled = true;
+    }
+    if (password && password.length < 8) {
+      errors.password = "Password must contain atleast 8 letters";
+      errors.disabled = true;
+    }
+    this.setState({ errors });
 
-    if (this.state.touched.name && name.length < 3)
-      error.name = "Name must contains atleast 3 charchters";
-    else if (this.state.touched.name && name.length > 20)
-      error.name = "Name can contains atmost 20 charchters";
-
-    if (this.state.touched.handleName && handleName.length < 3)
-      error.handleName = "Name must contains atleast 3 charchters";
-    else if (this.state.touched.handleName && handleName.length > 20)
-      error.handleName = "Name can contains atmost 20 charchters";
-
-    if (this.state.touched.password && password.length < 8)
-      error.password = "Password must contain atleast 8 letters";
-
-    return error;
-  }
+    return errors;
+  };
   render() {
-    const errors = this.validate(
-      this.state.name,
-      this.state.handleName,
-      this.state.email,
-      this.state.password
-    );
-    const isEnable =
-      errors.name.length > 0 ||
-      errors.handleName.length > 0 ||
-      errors.email.length > 0 ||
-      errors.password.length > 0;
     return (
       <React.Fragment>
         <AuthNavbar />
@@ -107,12 +96,10 @@ class Register extends Component {
                       id="name"
                       placeholder="Enter your Full Name"
                       value={this.state.name}
-                      onBlur={this.handleBlur("name")}
-                      valid={errors.name === ""}
-                      invalid={errors.name !== ""}
+                      onBlur={this.handleBlur}
                       onChange={this.handleInputChange}
                     />
-                    <FormFeedback>{errors.name}</FormFeedback>
+                    <p className="error">{this.state.errors.name}</p>
                   </FormGroup>
                   <FormGroup row>
                     <Label>Handle Name</Label>
@@ -122,14 +109,10 @@ class Register extends Component {
                       id="handleName"
                       placeholder="Display name"
                       value={this.state.handle}
-                      onBlur={this.handleBlur("handleName")}
-                      valid={errors.handleName === ""}
-                      invalid={errors.handleName !== ""}
+                      onBlur={this.handleBlur}
                       onChange={this.handleInputChange}
                     />
-                    <FormFeedback className="error">
-                      {errors.handleName}
-                    </FormFeedback>
+                    <p className="error">{this.state.errors.handleName}</p>
                   </FormGroup>
                   <FormGroup row>
                     <Label>Email</Label>
@@ -139,12 +122,10 @@ class Register extends Component {
                       id="email"
                       placeholder="your@example.com"
                       value={this.state.email}
-                      onBlur={this.handleBlur("email")}
-                      valid={errors.email === ""}
-                      invalid={errors.email !== ""}
+                      onBlur={this.handleBlur}
                       onChange={this.handleInputChange}
                     />
-                    <FormFeedback>{errors.email}</FormFeedback>
+                    <p className="error">{this.state.errors.email}</p>
                   </FormGroup>
                   <FormGroup row>
                     <Label>Password</Label>
@@ -155,16 +136,18 @@ class Register extends Component {
                       placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;"
                       autoComplete="off"
                       value={this.state.password}
-                      onBlur={this.handleBlur("password")}
-                      valid={errors.password === ""}
-                      invalid={errors.password !== ""}
+                      onBlur={this.handleBlur}
                       onChange={this.handleInputChange}
                     />
-                    <FormFeedback>{errors.password}</FormFeedback>
+                    <p className="error">{this.state.errors.password}</p>
                   </FormGroup>
                   <div className="row">
                     <div className="col-md-5">
-                      <button disabled={isEnable} type="submit" className="but">
+                      <button
+                        disabled={this.state.errors.disabled}
+                        type="submit"
+                        className="but"
+                      >
                         Register
                       </button>
                     </div>
