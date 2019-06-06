@@ -123,3 +123,6 @@ p {
   margin-top: 4vh !important;
   margin-left: 15px;
 }
+.error {
+  color: red;
+}
