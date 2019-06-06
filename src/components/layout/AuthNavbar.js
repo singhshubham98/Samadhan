@@ -7,7 +7,7 @@ const AuthNavbar = () => {
     <div>
       <Navbar expand="md" className="navDiv">
         <NavbarBrand className="navbarBrand ml-5" href="/">
-          Logo
+          Samadhan
         </NavbarBrand>
       </Navbar>
     </div>

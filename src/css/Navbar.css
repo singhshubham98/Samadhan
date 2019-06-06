@@ -6,13 +6,14 @@
   z-index: 100;
   color: white !important;
   top: 0;
-  background-image: linear-gradient(rgb(108, 99, 255), rgb(108, 99, 255));
+  background-color: rgb(89, 78, 255);
 }
 
 .navbarBrand {
   color: white;
   font-size: 4vmin !important;
   text-align: center;
+  text-shadow: 2px 2px 4px #000000;
 }
 .navbarBrand:hover {
   color: white;
@@ -42,7 +43,7 @@
 
 li {
   font-size: 3vmin;
-  margin: 0 2vw 0 2vw;
+  margin: 0 1vw;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {

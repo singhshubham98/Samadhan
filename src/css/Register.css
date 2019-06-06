@@ -80,11 +80,11 @@ label {
   font-size: 0.9em;
   padding-left: 15px;
 }
-button,
-.button {
+
+.but {
   padding: 10px 50px;
   line-height: 1.7;
-  border: 1px solid #6c63ff;
+  border: 1px solid rgba(89, 78, 255);
   color: #fff;
   font-weight: 400;
   transition: 0.7s;
