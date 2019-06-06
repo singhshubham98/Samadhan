@@ -65,7 +65,7 @@ class Home extends Component {
                 </div>
               </div>
               <div className="content-column w-col w-col-9">
-                <div className="card mb-4">
+                <div className="card mb-4 homeCard">
                   <div className="row">
                     <div className="col-md-2">
                       <div className="round">
@@ -99,7 +99,7 @@ class Home extends Component {
                     </div>
                   </div>
                 </div>
-                <div className="card mb-4">
+                <div className="card mb-4 homeCard">
                   <div className="row">
                     <div className="col-md-2">
                       <div className="round">
@@ -139,7 +139,7 @@ class Home extends Component {
                     </div>
                   </div>
                 </div>
-                <div className="card mb-4">
+                <div className="card mb-4 homeCard">
                   <div className="row">
                     <div className="col-md-2">
                       <div className="round">
@@ -179,7 +179,7 @@ class Home extends Component {
                     </div>
                   </div>
                 </div>
-                <div className="card mb-4">
+                <div className="card mb-4 homeCard">
                   <div className="row">
                     <div className="col-md-2">
                       <div className="round">
@@ -219,7 +219,7 @@ class Home extends Component {
                     </div>
                   </div>
                 </div>
-                <div className="card mb-4">
+                <div className="card mb-4 homeCard">
                   <div className="row">
                     <div className="col-md-2">
                       <div className="round">
@@ -259,7 +259,7 @@ class Home extends Component {
                     </div>
                   </div>
                 </div>
-                <div className="card mb-4">
+                <div className="card mb-4 homeCard">
                   <div className="row">
                     <div className="col-md-2">
                       <div className="round">
