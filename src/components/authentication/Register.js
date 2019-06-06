@@ -3,7 +3,6 @@ import image from "../../images/undraw_online_discussion_5wgl.svg";
 import "../../css/Register.css";
 import AuthNavbar from "../layout/AuthNavbar";
 import { Form, FormGroup, FormFeedback, Label, Input } from "reactstrap";
-import { isExpressionWrapper } from "@babel/types";
 
 class Register extends Component {
   constructor(props) {
@@ -21,12 +20,9 @@ class Register extends Component {
       },
       isEnable: true
     };
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleBlur = this.handleBlur.bind(this);
   }
 
-  handleInputChange(event) {
+  handleInputChange = event => {
     const target = event.target;
     const value = target.value;
     const name = target.name;
@@ -34,8 +30,8 @@ class Register extends Component {
       [name]: value,
       isEnable: false
     });
-  }
-  handleSubmit(event) {
+  };
+  handleSubmit = event => {
     event.preventDefault();
     alert(JSON.stringify(this.state));
     this.setState({
@@ -51,7 +47,7 @@ class Register extends Component {
       },
       isEnable: true
     });
-  }
+  };
 
   handleBlur = feild => event => {
     this.setState({
@@ -59,7 +55,7 @@ class Register extends Component {
     });
   };
 
-  validate(name, handleName, email, password) {
+  validate = (name, handleName, email, password) => {
     const error = {
       name: "",
       handleName: "",
@@ -94,7 +90,7 @@ class Register extends Component {
       error.isEnable = true;
     }
     return error;
-  }
+  };
   render() {
     const errors = this.validate(
       this.state.name,
