@@ -30,6 +30,19 @@ class Register extends Component {
   handleSubmit = event => {
     console.log(JSON.stringify(this.state));
     event.preventDefault();
+    this.setState({
+      name: "",
+      handleName: "",
+      email: "",
+      password: "",
+      errors: {
+        name: "",
+        handleName: "",
+        email: "",
+        password: "",
+        disabled: true
+      }
+    });
   };
 
   handleBlur = event => {
@@ -52,8 +65,7 @@ class Register extends Component {
     } else if (name.length > 30) {
       errors.name = "Name can contains atmost 30 charchters";
       errors.disabled = true;
-    }
-    if (handleName.length < 3) {
+    } else if (handleName.length < 3) {
       errors.handleName = "Name must contains atleast 3 charchters";
       errors.disabled = true;
     } else if (handleName && handleName.length > 20) {
