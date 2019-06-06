@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import image from "../../images/undraw_online_discussion_5wgl.svg";
 import "../../css/Register.css";
 import AuthNavbar from "../layout/AuthNavbar";
-import { Form, FormGroup, FormFeedback, Label, Input } from "reactstrap";
+import { Form, FormGroup, Label, Input } from "reactstrap";
 
 class Register extends Component {
   constructor(props) {
@@ -136,7 +136,7 @@ class Register extends Component {
                       invalid={errors.name !== ""}
                       onChange={this.handleInputChange}
                     />
-                    <FormFeedback>{errors.name}</FormFeedback>
+                    <p className="errors">{errors.name}</p>
                   </FormGroup>
                   <FormGroup row>
                     <Label>Handle Name</Label>
@@ -154,9 +154,9 @@ class Register extends Component {
                       invalid={errors.handleName !== ""}
                       onChange={this.handleInputChange}
                     />
-                    <FormFeedback className="error">
+                    <p className="errors" className="error">
                       {errors.handleName}
-                    </FormFeedback>
+                    </p>
                   </FormGroup>
                   <FormGroup row>
                     <Label>Email</Label>
@@ -171,7 +171,7 @@ class Register extends Component {
                       invalid={errors.email !== ""}
                       onChange={this.handleInputChange}
                     />
-                    <FormFeedback>{errors.email}</FormFeedback>
+                    <p className="errors">{errors.email}</p>
                   </FormGroup>
                   <FormGroup row>
                     <Label>Password</Label>
@@ -189,7 +189,7 @@ class Register extends Component {
                       invalid={errors.password !== ""}
                       onChange={this.handleInputChange}
                     />
-                    <FormFeedback>{errors.password}</FormFeedback>
+                    <p className="errors">{errors.password}</p>
                   </FormGroup>
                   <div className="row">
                     <div className="col-md-5">
