@@ -1,6 +1,7 @@
 import React from "react";
 import Login from "./components/authentication/Login";
 import Register from "./components/authentication/Register";
+import Dashboard from "./components/dashboard/Dashboard";
 import { BrowserRouter, Route } from "react-router-dom";
 
 function App() {
