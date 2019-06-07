@@ -79,14 +79,17 @@ class Register extends Component {
     }
 
     if (this.state.touched.handleName && handleName.length < 3) {
-      error.handleName = "Name must contains atleast 3 charchters";
+      error.handleName = "Handle Name must contains atleast 3 charchters";
       error.isEnable = true;
     } else if (this.state.touched.handleName && handleName.length > 20) {
-      error.handleName = "Name can contains atmost 20 charchters";
+      error.handleName = "Handle Name can contains atmost 20 charchters";
       error.isEnable = true;
     }
     if (this.state.touched.password && password.length < 8) {
       error.password = "Password must contain atleast 8 letters";
+      error.isEnable = true;
+    } else if (this.state.touched.password && password.length > 20) {
+      error.password = "Password length must be less then 20";
       error.isEnable = true;
     }
     return error;
@@ -154,9 +157,7 @@ class Register extends Component {
                       invalid={errors.handleName !== ""}
                       onChange={this.handleInputChange}
                     />
-                    <p className="errors" className="error">
-                      {errors.handleName}
-                    </p>
+                    <p className="errors">{errors.handleName}</p>
                   </FormGroup>
                   <FormGroup row>
                     <Label>Email</Label>
