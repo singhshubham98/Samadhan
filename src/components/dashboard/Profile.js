@@ -1,3 +1,4 @@
+//Profile Page updated
 import React, { Component } from "react";
 import "../../css/profile.css";
 import Navbar from "../layout/Navbar";
